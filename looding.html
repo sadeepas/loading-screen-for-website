@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Colorful Loader</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: radial-gradient(circle at center, #111, #000);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .loader {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 5px solid transparent;
+      animation: rotate 2s linear infinite;
+    }
+
+    .ring.one {
+      border-top-color: #00e1ff;
+      animation-duration: 2s;
+      box-shadow: 0 0 15px #00e1ff, 0 0 30px rgba(0, 225, 255, 0.5);
+    }
+
+    .ring.two {
+      border-right-color: #ff007a;
+      width: 70%;
+      height: 70%;
+      top: 15%;
+      left: 15%;
+      animation-duration: 1.5s;
+      animation-direction: reverse;
+      box-shadow: 0 0 15px #ff007a, 0 0 30px rgba(255, 0, 122, 0.5);
+    }
+
+    .ring.three {
+      border-left-color: #4aff00;
+      width: 50%;
+      height: 50%;
+      top: 25%;
+      left: 25%;
+      animation-duration: 1s;
+      box-shadow: 0 0 15px #4aff00, 0 0 30px rgba(74, 255, 0, 0.5);
+    }
+
+    .center-dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: conic-gradient(from 0deg, #00e1ff, #ff007a, #4aff00, #00e1ff);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      animation: pulse 2s infinite;
+    }
+
+    .loading-text {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: fadeInOut 2s infinite;
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .loader {
+        width: 100px;
+        height: 100px;
+      }
+
+      .center-dot {
+        width: 15px;
+        height: 15px;
+      }
+
+      .loading-text {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="ring one"></div>
+    <div class="ring two"></div>
+    <div class="ring three"></div>
+    <div class="center-dot"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+</body>
+</html>
